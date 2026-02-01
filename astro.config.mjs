@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://lobsterfacts.thepickle.dev',
@@ -11,7 +11,7 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
-  output: 'server',
+  output: 'static',
   adapter: vercel(),
   vite: {
     ssr: {
