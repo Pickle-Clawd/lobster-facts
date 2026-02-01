@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-deep: #050a15;
+    --text-cream: #fff8f0;
+    --accent-coral: #ff6b4a;
+    --glow-cyan: #00fff0;
+    --glow-blue: #0066ff;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-[var(--bg-deep)] text-[var(--text-cream)] antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(0, 255, 240, 0.5), 0 0 40px rgba(0, 255, 240, 0.3);
+  }
+  
+  .text-glow-coral {
+    text-shadow: 0 0 20px rgba(255, 107, 74, 0.5), 0 0 40px rgba(255, 107, 74, 0.3);
+  }
+}
