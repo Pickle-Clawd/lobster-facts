@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --bg-deep: #050a15;
-    --text-cream: #fff8f0;
+    --bg-deep: #030810;
+    --text-cream: #e8f0ff;
     --accent-coral: #ff6b4a;
     --glow-cyan: #00fff0;
     --glow-blue: #0066ff;
@@ -14,19 +14,98 @@
   body {
     @apply bg-[var(--bg-deep)] text-[var(--text-cream)] antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
+  h1, h2, h3, h4, h5, h6, blockquote {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
   }
 }
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 20px rgba(0, 255, 240, 0.5), 0 0 40px rgba(0, 255, 240, 0.3);
+    text-shadow: 
+      0 0 30px rgba(0, 255, 240, 0.4),
+      0 0 60px rgba(0, 255, 240, 0.2),
+      0 0 100px rgba(0, 255, 240, 0.1);
   }
   
-  .text-glow-coral {
-    text-shadow: 0 0 20px rgba(255, 107, 74, 0.5), 0 0 40px rgba(255, 107, 74, 0.3);
+  .vignette {
+    box-shadow: inset 0 0 200px 60px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
   }
+  
+  .glow-divider {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 255, 240, 0.15) 20%,
+      rgba(0, 255, 240, 0.4) 50%,
+      rgba(0, 255, 240, 0.15) 80%,
+      transparent 100%
+    );
+    height: 1px;
+  }
+  
+  .btn-glow {
+    animation: btn-pulse 3s ease-in-out infinite;
+  }
+  
+  .bottom-fade {
+    background: linear-gradient(
+      to top,
+      rgba(3, 8, 16, 0.9) 0%,
+      transparent 100%
+    );
+  }
+  
+  .top-fade {
+    background: linear-gradient(
+      to bottom,
+      rgba(3, 8, 16, 0.6) 0%,
+      transparent 100%
+    );
+  }
+}
+
+@keyframes btn-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 200, 255, 0.3), 0 0 40px rgba(0, 200, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.5), 0 0 60px rgba(0, 200, 255, 0.2);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-out;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
