@@ -8,8 +8,9 @@ interface Props {
 }
 
 const { title, description, factId } = Astro.props;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImage = factId ? `${Astro.site}og-fact-${factId}.png` : `${Astro.site}og-default.png`;
+const siteUrl = Astro.site?.toString() || 'https://lobsterfacts.thepickle.dev';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImage = `${siteUrl}/og-default.png`;
 ---
 
 <!doctype html>
