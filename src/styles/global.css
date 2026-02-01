@@ -11,10 +11,6 @@
     --glow-blue: #0066ff;
   }
   
-  * {
-    @apply border-border;
-  }
-  
   body {
     @apply bg-[var(--bg-deep)] text-[var(--text-cream)] antialiased;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

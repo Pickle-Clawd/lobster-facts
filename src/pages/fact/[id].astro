@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import UnderwaterScene from '../../components/UnderwaterScene';
 import facts from '../../data/facts.json';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   return facts.map(fact => ({
     params: { id: String(fact.id) },
